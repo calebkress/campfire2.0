@@ -18,9 +18,9 @@ CREATE TABLE users (
   PRIMARY KEY (ID)
 );
 
-CREATE TABLE messages (
+CREATE TABLE posts (
   id int NOT NULL AUTO_INCREMENT,
-  message TEXT(255),
+  post TEXT(255),
   user_ID int,
   story_ID int,
   PRIMARY KEY (ID),
@@ -30,4 +30,4 @@ CREATE TABLE messages (
 
 INSERT INTO users (username, password) values ("Joshawesome12", "Batmanrox"),("ghostCoder8", "Imdabest");
 INSERT INTO stories (storyName) values ("Batman ate my sandwich"), ("The legend of Ghost Coder");
-INSERT INTO messages (message, user_ID, story_ID) values ("I was walking down the street when all of a sudden a black car pulls up next to me. I struggled to see who it was through the window, but they were tinted. A tall man gets out and says give me the sandwich that you hold in your hand.",1,1),("There once was an awesome guy who was known as the ghost Coder. He perfected his craft in the arts of hacking and javascript",2,2);
+INSERT INTO posts (post, user_ID, story_ID) values ("I was walking down the street when all of a sudden a black car pulls up next to me. I struggled to see who it was through the window, but they were tinted. A tall man gets out and says give me the sandwich that you hold in your hand.",1,1),("There once was an awesome guy who was known as the ghost Coder. He perfected his craft in the arts of hacking and javascript",2,2);
