@@ -31,3 +31,5 @@ Posts.selectAll = (data) => {
       console.error(error)
     })
 }
+
+module.exports = Posts
