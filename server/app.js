@@ -17,9 +17,25 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.listen(8000, function() {
+  console.log('Listening on port 8000')
+});
+
 // add a user
 app.post('/campfire/users', (req, res) => {
   Users.addUser(req.body)
+  res.end()
+});
+
+// add a post
+app.post('/campfire/posts', (req, res) => {
+  Posts.addPost(req.body)
+  res.send(req.body.post)
+});
+
+// add a new story
+app.post('/campfire/stories', (req, res) => {
+  Stories.addStory(req.body)
   res.end()
 });
 
@@ -29,23 +45,14 @@ app.get('/campfire/users', (req, res) => {
     .then(data => {res.send(data)})
 });
 
-// add a post
-app.post('/campfire/posts', (req, res) => {
-  Posts.addPost(req.body)
-  res.send(req.body.post)
-})
-
 // select posts by story ID
 app.get('/campfire/posts', (req, res) => {
   var param = req.query.story_ID
   Posts.selectAll({story_ID: param})
     .then(data => {res.send(data)})
-})
+});
 
-// add a new story
-app.post('/campfire/stories', (req, res) => {
-  Stories.addStory(req.body)
-  res.end()
+// select all story titles
+app.get('/campfire/stories', (req, res) => {
+  
 })
-
-// 
